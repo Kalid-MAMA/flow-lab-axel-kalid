@@ -1,13 +1,19 @@
-// Starting point for TP 06. One method, one line per member: the conflicts are real because
-// everyone edits the same place, which is exactly what happens on a shared codebase.
 public class Salutation {
 
-  public static void main(String[] args) {
-    System.out.println(saluer("user"));
-  }
+    public static String saluer(String nom, String langue) {
+        if (langue == null) {
+            langue = "FR";
+        }
+        return switch (langue.toUpperCase()) {
+            case "EN" -> "Hello " + nom;
+            case "ES" -> "Hola " + nom;
+            default -> "Bonjour " + nom;
+        };
+    }
 
-  static String saluer(String nom) {
-    // TODO: chaque membre du groupe ajoute ICI sa salutation, dans sa propre branche.
-    return "Hello, " + nom + "!";
-  }
+    public static void main(String[] args) {
+        System.out.println(saluer("Monde", "FR"));
+        System.out.println(saluer("World", "EN"));
+        System.out.println(saluer("Mundo", "ES"));
+    }
 }
