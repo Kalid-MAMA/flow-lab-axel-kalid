@@ -6,6 +6,7 @@ public class Salutation {
     System.out.println(saluer("user"));
   }
 
+  // Salutation selon l'heure : avant 12h, de 12h à 18h, puis le soir.
   static String saluer(String nom) {
     // TODO: chaque membre du groupe ajoute ICI sa salutation, dans sa propre branche.
     int heure = java.time.LocalTime.now().getHour();
