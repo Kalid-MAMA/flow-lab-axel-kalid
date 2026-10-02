@@ -1,19 +1,18 @@
 public class Salutation {
 
-    public static String saluer(String nom, String langue) {
-        if (langue == null) {
-            langue = "FR";
+    static String saluer(String nom, String langue) {
+        int heure = java.time.LocalTime.now().getHour();
+        if (langue != null && langue.equalsIgnoreCase("EN")) {
+            return (heure < 12) ? "Good morning, " + nom + " !" : "Good evening, " + nom + " !";
         }
-        return switch (langue.toUpperCase()) {
-            case "EN" -> "Hello " + nom;
-            case "ES" -> "Hola " + nom;
-            default -> "Bonjour " + nom;
-        };
+        if (langue != null && langue.equalsIgnoreCase("ES")) {
+            return (heure < 12) ? "Buenos días, " + nom + " !" : "Buenas tardes, " + nom + " !";
+        }
+        return (heure < 18) ? "Bonjour, " + nom + " !" : "Bonsoir, " + nom + " !";
     }
 
     public static void main(String[] args) {
         System.out.println(saluer("Monde", "FR"));
         System.out.println(saluer("World", "EN"));
-        System.out.println(saluer("Mundo", "ES"));
     }
 }
