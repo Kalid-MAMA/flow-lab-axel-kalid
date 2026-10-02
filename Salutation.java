@@ -8,6 +8,12 @@ public class Salutation {
 
   static String saluer(String nom) {
     // TODO: chaque membre du groupe ajoute ICI sa salutation, dans sa propre branche.
-    return "Hello, " + nom + "!";
+    int heure = java.time.LocalTime.now().getHour();
+    if (heure < 12) {
+      return "Bonjour, " + nom + " !";
+    } else if (heure < 18) {
+      return "Bon après-midi, " + nom + " !";
+    }
+    return "Bonsoir, " + nom + " !";
   }
 }
